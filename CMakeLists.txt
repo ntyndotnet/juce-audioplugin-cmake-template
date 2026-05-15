@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.26) # minimum version required for functionality
 
-project(plgn) # set PROJECT_NAME
+project(pluginName) # set PROJECT_NAME
 
 set(CMAKE_CXX_STANDARD 23) # set C++ standard
 
@@ -23,7 +23,7 @@ juce_add_plugin(${PROJECT_NAME}
     COPY_PLUGIN_AFTER_BUILD FALSE
     PLUGIN_MANUFACTURER_CODE ntyn
     PLUGIN_CODE plgn
-    PRODUCT_NAME plgn
+    PRODUCT_NAME pluginName
     FORMATS VST3 Standalone)
 
 target_sources(${PROJECT_NAME}  
