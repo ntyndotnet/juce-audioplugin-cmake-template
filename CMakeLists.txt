@@ -10,7 +10,7 @@ set(SOURCE_FILES
         source/PluginProcessor.cpp
         source/PluginProcessor.h) # put source files here
 
-add_subdirectory(C:/libs/JUCE/juce-8.0.12-windows/JUCE JUCE) # put the output files in the JUCE folder
+add_subdirectory(C:/libs/JUCE/juce-8.0.12-windows/JUCE JUCE)
 
 juce_add_plugin(${PROJECT_NAME}
     VERSION 0.0.0
