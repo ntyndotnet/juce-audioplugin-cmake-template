@@ -1,8 +1,22 @@
+#[[  this is a comment  ]]
+
 cmake_minimum_required(VERSION 3.26) # minimum version required for functionality
 
 project(pluginName) # set PROJECT_NAME
 
 set(CMAKE_CXX_STANDARD 23) # set C++ standard
+
+set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>") # use static runtime
+
+if (MSVC)
+    # generate debugging info and .pdb files
+    add_compile_options("$<$<NOT:$<CONFIG:Debug>>:/Zi>")
+    add_link_options("$<$<NOT:$<CONFIG:Debug>>:/DEBUG>")
+
+    # turns on some optimizations
+    add_link_options("$<$<NOT:$<CONFIG:Debug>>:/OPT:REF>")
+    add_link_options("$<$<NOT:$<CONFIG:Debug>>:/OPT:ICF>")
+endif()
 
 set(SOURCE_FILES
         source/PluginEditor.cpp
@@ -10,7 +24,7 @@ set(SOURCE_FILES
         source/PluginProcessor.cpp
         source/PluginProcessor.h) # put source files here
 
-add_subdirectory(C:/libs/JUCE/juce-8.0.12-windows/JUCE JUCE)
+add_subdirectory(C:/libs/JUCE/juce-8.0.12-windows/JUCE JUCE) # put JUCE directory here
 
 juce_add_plugin(${PROJECT_NAME}
     VERSION 0.0.0
@@ -26,9 +40,19 @@ juce_add_plugin(${PROJECT_NAME}
     PRODUCT_NAME pluginName
     FORMATS VST3 Standalone)
 
+
+juce_add_binary_data(Assets
+    SOURCES
+) # put assets to add as binary data here
+
 target_sources(${PROJECT_NAME}  
     PRIVATE
        ${SOURCE_FILES}
+)
+
+target_include_directories(${PROJECT_NAME}
+    PRIVATE
+        source
 )
 
 target_compile_definitions(${PROJECT_NAME}
@@ -40,6 +64,8 @@ target_compile_definitions(${PROJECT_NAME}
 
 target_link_libraries(${PROJECT_NAME}
     PRIVATE
+        Assets
+
         juce::juce_audio_utils
         juce::juce_analytics
         juce::juce_audio_basics
