@@ -40,7 +40,6 @@ juce_add_plugin(${PROJECT_NAME}
     PRODUCT_NAME pluginName
     FORMATS VST3 Standalone)
 
-
 juce_add_binary_data(Assets
     SOURCES
 ) # put assets to add as binary data here
