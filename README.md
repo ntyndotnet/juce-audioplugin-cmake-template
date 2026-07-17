@@ -1,3 +1,3 @@
-# about
+# About
 
-basic template for juce audio plugin, using cmake
+Basic template for a JUCE audio plugin, using CMake.
