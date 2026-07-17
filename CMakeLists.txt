@@ -13,7 +13,7 @@ if (MSVC)
     add_compile_options("$<$<NOT:$<CONFIG:Debug>>:/Zi>")
     add_link_options("$<$<NOT:$<CONFIG:Debug>>:/DEBUG>")
 
-    # turns on some optimizations
+    # turn on some optimizations
     add_link_options("$<$<NOT:$<CONFIG:Debug>>:/OPT:REF>")
     add_link_options("$<$<NOT:$<CONFIG:Debug>>:/OPT:ICF>")
 endif()
