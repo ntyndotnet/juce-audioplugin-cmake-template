@@ -37,7 +37,7 @@ juce_add_plugin(${PROJECT_NAME}
     COPY_PLUGIN_AFTER_BUILD FALSE
     PLUGIN_MANUFACTURER_CODE ntyn
     PLUGIN_CODE plgn
-    PRODUCT_NAME pluginName
+    PRODUCT_NAME "pluginName"
     FORMATS VST3 Standalone)
 
 juce_add_binary_data(Assets
