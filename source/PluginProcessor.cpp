@@ -10,7 +10,7 @@ AudioProcessor(BusesProperties()
                     #endif
                     .withOutput("Output", juce::AudioChannelSet::stereo(), true)
                #endif
-               )
+              )
 {
 }
 
@@ -163,7 +163,7 @@ bool AudioPluginAudioProcessor::hasEditor() const
 
 juce::AudioProcessorEditor* AudioPluginAudioProcessor::createEditor()
 {
-    return new AudioPluginAudioProcessorEditor(*this);
+    return new AudioPluginAudioProcessorEditor {*this};
 }
 
 //==============================================================================
