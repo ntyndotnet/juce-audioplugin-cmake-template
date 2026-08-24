@@ -126,7 +126,8 @@ void AudioPluginAudioProcessor::processBlock(juce::AudioBuffer<float>& buffer,
 {
     juce::ignoreUnused(midiMessages);
 
-    juce::ScopedNoDenormals noDenormals;
+    juce::ScopedNoDenormals noDenormals; // avoid using denormals, round to zero
+
     auto totalNumInputChannels = getTotalNumInputChannels();
     auto totalNumOutputChannels = getTotalNumOutputChannels();
 
